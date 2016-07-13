@@ -1,0 +1,27 @@
+- var genres = ['death', 'melodic death', 'power', 'progressive']
+
+doctype html
+html(lang="en")
+  head
+    title Metal
+    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700', rel='stylesheet')
+    link(rel="stylesheet", type="text/css", href="styles/styles.css")
+  body
+    .container
+      h1 the metal directory
+      h2 submit
+      form#band-form
+        div.input-field
+          input#band-name(placeholder="name" name="name")
+        div.input-field
+          select#band-genre(name="genre")
+            for genre in genres
+              option(value=genre) #{genre}
+        div.input-field
+          button(type="submit") submit
+
+      h2 current listings
+      ul.band-listing
+        for band in bands
+          li.band #{band.name} - #{band.genre}
+  script(src="scripts/main.js")
